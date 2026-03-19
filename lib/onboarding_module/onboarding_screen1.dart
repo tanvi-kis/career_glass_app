@@ -42,9 +42,9 @@ class _OnboardingScreen1State extends State<OnboardingScreen1> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor:CColors.primarybackground,
+      backgroundColor:CColors.allscreenbackground,
       appBar:AppBar(
-        backgroundColor: CColors.primarybackground,
+        backgroundColor: CColors.allscreenbackground,
         automaticallyImplyLeading: false,
        
        title: Row(
@@ -95,6 +95,7 @@ class _OnboardingScreen1State extends State<OnboardingScreen1> {
                                 side: BorderSide(color: CColors.borderside)
                               ),
                               color: CColors.cardbackground,
+                             // shadowColor: CColors.primarybackground,
                               elevation: 5.0,
                               child:
                                 Padding(
@@ -173,7 +174,9 @@ class _OnboardingScreen1State extends State<OnboardingScreen1> {
                     ),
                   );
 
-              },),
+              },
+
+              ),
             ),
 
 

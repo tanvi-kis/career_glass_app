@@ -2,8 +2,11 @@ import 'package:flutter/material.dart';
 
 class CColors {
   ///App theme colors
-  static const Color primarybackground = Color(0xFF192140);///0xFF101322
+  static const Color allscreenbackground = Color(0xFF18204A);///0xFF101322     0xFF1F264C
   static const Color secondarybackground = Color(0xFFF4F46E5);
+  static const Color primarybackground = Color(0xFFF4F46E5);
+
+
 
   ///card colors
   static const Color cardbackground = Color(0xFF101B50);

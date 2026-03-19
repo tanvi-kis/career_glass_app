@@ -53,6 +53,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       CColors.cardbackground],
                     begin:Alignment.centerLeft,
                     end: Alignment.bottomCenter,
+
                   ),
                 borderRadius: BorderRadius.circular(24),
                 //border: Border.all(color: CColors.borderside)
@@ -82,28 +83,23 @@ class _LoginScreenState extends State<LoginScreen> {
                                 prefixIcon: Icon(Icons.email_outlined,size: 20,),
                                 border: OutlineInputBorder(
                                     borderRadius: BorderRadius.circular(24),
-                                  borderSide: BorderSide(color: CColors.borderside)
+                                 // borderSide: BorderSide(color: CColors.borderside)
                                 )
                                 
                               ),
                               validator: (value) {
 
 
-
-                              },
+                                },
                             )
-
                           ],
-                      
-                    ))
-
+                        ),
+                    )
                   ],
                 ),
               ),
             )
-
           ],
-
         ),
       ),
     );
