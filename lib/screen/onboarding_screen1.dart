@@ -1,7 +1,7 @@
-import 'package:career_glass_app/color.dart';
+import 'package:career_glass_app/helpar/color.dart';
 import 'package:flutter/material.dart';
 
-import '../login_screen/login_screen.dart';
+import 'auth/login_screen.dart';
 
 class OnboardingScreen1 extends StatefulWidget {
   const OnboardingScreen1({super.key});

@@ -1,7 +1,7 @@
+import 'package:career_glass_app/screen/onboarding_screen1.dart';
 import 'package:flutter/material.dart';
 
-import 'color.dart';
-import 'onboarding_module/onboarding_screen1.dart';
+import 'helpar/color.dart';
 
 void main() {
   runApp(const MyApp());
