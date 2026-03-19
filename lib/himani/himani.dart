@@ -13,7 +13,7 @@ class _HimaniScreenState extends State<HimaniScreen> {
     return const Scaffold(
       body: Column(
         children: [
-          Text("Himani")
+          Text("Himani parekh")
         ],
       ),
     );
