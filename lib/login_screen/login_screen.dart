@@ -32,7 +32,7 @@ class _LoginScreenState extends State<LoginScreen> {
             Image.asset('assets/images/login_appbar.png',height: 32,width: 32,),
             SizedBox(width: 8,),
 
-            Text('CareerGlass',style: TextStyle(color: CColors.text,fontSize: 20,fontWeight: FontWeight.w700),),
+            Text('Career',style: TextStyle(color: CColors.text,fontSize: 20,fontWeight: FontWeight.w700),),
 
           ],
         ),
