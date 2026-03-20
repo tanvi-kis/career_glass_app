@@ -15,7 +15,11 @@ class _RegistrationState extends State<Registration> {
 
       ),
       body:Container(
-        child: Text('bsfbcg'),
+        child: Column(
+          children: [
+            Text('eyyefgy')
+          ],
+        )
 
       ),
     );
