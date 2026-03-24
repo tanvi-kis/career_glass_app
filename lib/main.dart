@@ -87,32 +87,32 @@ Future.delayed(Duration(seconds: 5),(){
                 SizedBox(height: 30,),
                 Center(
                   child: Text.rich(
-                    TextSpan(
+                      TextSpan(
                         text: 'Career',
                         style: TextStyle(color: Colors.white, fontSize: 48,fontWeight: FontWeight.w700),
 
-                        children: [
+                          children: [
                           TextSpan(
-                            text: 'Glass',
-                            style: TextStyle(color: Color(0xFF0F67C1), fontSize: 48,fontWeight: FontWeight.w700),)
-                        ]
-                    ),
+                          text: 'Glass',
+                          style: TextStyle(color: Color(0xFF0F67C1), fontSize: 48,fontWeight: FontWeight.w700),)
+                      ]
+                      ),
                   ),
                 ),
                 Center(
-                  child: Text('Finding your next career move',style: TextStyle(color: Color(0xff94A3B8),fontSize:14 ),),
+                    child: Text('Finding your next career move',style: TextStyle(color: Color(0xff94A3B8),fontSize:14 ),),
                 ),
 
                 SizedBox(height: 120,),
-                ///button-==
+///button-==
                 Center(
                   child: Container(
                     height: 50,
-                    width:250,
+                      width:250,
                     decoration: BoxDecoration(
-                        color: Color(0xff12183e),  ///0xff94A3B8
-                        borderRadius: BorderRadius.circular(30),
-                        border: Border.all(color: Color(0xff94A3B8))
+                      color: Color(0xff12183e),  ///0xff94A3B8
+                      borderRadius: BorderRadius.circular(30),
+                      border: Border.all(color: Color(0xff94A3B8))
                     ),
                     child: Padding(
                       padding: const EdgeInsets.all(8.0),
@@ -122,22 +122,21 @@ Future.delayed(Duration(seconds: 5),(){
                         children: [
                           CircleAvatar(
                             radius: 30,
-                            // backgroundImage: NetworkImage('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcToK3s_MU9QNJ0vVIgU7rK1sDPd_k5QHK5mrA&s',),
                             backgroundImage: AssetImage('assets/images/splash_image.png'),
                           ),
                           Text.rich(
                               TextSpan(
-                                  text: 'Welcome back, ',
+                                text: 'Welcome back, ',
                                   style: TextStyle(color: CColors.primarytext, fontSize: 12,fontWeight: FontWeight.w700),
                                   children: [
-                                    TextSpan(
-                                      text: 'Julian',
-                                      style: TextStyle(color: Colors.white, fontSize: 12,fontWeight: FontWeight.w700),
+                                  TextSpan(
+                                    text: 'Julian',
+                                    style: TextStyle(color: Colors.white, fontSize: 12,fontWeight: FontWeight.w700),
 
-                                    )
-                                  ]
+                                  )
+                                ]
 
-                              ))
+                          ))
                         ],
                       ),
                     ),
@@ -150,7 +149,6 @@ Future.delayed(Duration(seconds: 5),(){
           ),
 
         ),
-
       );
   }
 }
