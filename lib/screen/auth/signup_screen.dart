@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:career_glass_app/helpar/color.dart';
 
+import 'forgot_password.dart';
+import 'login_screen.dart';
+
 class SignupScreen extends StatefulWidget {
   const SignupScreen({super.key});
 
@@ -37,7 +40,7 @@ class _SignupScreenState extends State<SignupScreen> {
               children: [
  ///card=
                 Container(
-                  height:720 ,
+                  height:800 ,
                   width: double.infinity,
                   decoration: BoxDecoration(
                       gradient: RadialGradient(
@@ -165,7 +168,7 @@ class _SignupScreenState extends State<SignupScreen> {
                                 width: double.infinity,
                                 child: ElevatedButton(onPressed: () {
                                   if(_formKey.currentState!.validate()){
-                                    Navigator.push(context, MaterialPageRoute(builder: (context) => SignupScreen(),));
+                                    Navigator.push(context, MaterialPageRoute(builder: (context) => ForgotPassword(),));
                                   }
                                 }, child: Text('Sign Up',style: TextStyle(color: CColors.text,fontSize: 24),),
                                   style: ElevatedButton.styleFrom(
@@ -187,15 +190,20 @@ class _SignupScreenState extends State<SignupScreen> {
 
                                     ),
                                   ),
-                                  Container(
-                                    decoration: BoxDecoration(
-                                      borderRadius: BorderRadius.circular(1),
-                                      color:CColors.borderside
-                                    ),
-                                      child: Padding(
-                                        padding: const EdgeInsets.all(5),
-                                        child: Text('Already have an account?',style: TextStyle(color: CColors.hinttext,fontSize: 14,fontWeight: FontWeight.w700),),
-                                      )),
+                                  InkWell(
+                                    onTap: () {
+                                      Navigator.push(context, MaterialPageRoute(builder: (context) => LoginScreen(),));
+                                    },
+                                    child: Container(
+                                      decoration: BoxDecoration(
+                                        borderRadius: BorderRadius.circular(1),
+                                        color:CColors.borderside
+                                      ),
+                                        child: Padding(
+                                          padding: const EdgeInsets.all(5),
+                                          child: Text('Already have an account?',style: TextStyle(color: CColors.hinttext,fontSize: 14,fontWeight: FontWeight.w700),),
+                                        )),
+                                  ),
                                   Expanded(
                                     child: Divider(
                                       color: Colors.grey,

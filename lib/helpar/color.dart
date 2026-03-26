@@ -10,6 +10,9 @@ class CColors {
   static const Color cardbackground = Color(0xFF101B50);/// onboardind,auth
   static const Color card2background = Color(0xFF0C338E);///auth use
   static const Color borderside = Color(0xFF1F264C);
+  static const Color Card = Color(0xFF191E39);
+
+
 
 
   ///text

@@ -4,6 +4,8 @@ import 'package:career_glass_app/helpar/color.dart';
 import 'package:pinput/pinput.dart';
 import 'package:flutter_timer_countdown/flutter_timer_countdown.dart';
 
+import 'login_screen.dart';
+
 
 
 class ForgotPassword extends StatefulWidget {
@@ -103,7 +105,7 @@ class _ForgotPasswordState extends State<ForgotPassword> {
                           height: 56,
                           width: double.infinity,
                           child: ElevatedButton(onPressed: () {
-                            Navigator.push(context, MaterialPageRoute(builder: (context) => Password(),));
+                            Navigator.push(context, MaterialPageRoute(builder: (context) => LoginScreen(),));
                             }, child: Text('Verify',style: TextStyle(color: CColors.text,fontSize: 16,fontWeight: FontWeight.w700),),
                             style: ElevatedButton.styleFrom(
                                 backgroundColor: CColors.button,
