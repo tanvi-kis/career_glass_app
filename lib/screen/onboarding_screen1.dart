@@ -42,12 +42,13 @@ class _OnboardingScreen1State extends State<OnboardingScreen1> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor:CColors.allscreenbackground,
+
+
       appBar:AppBar(
-        backgroundColor: CColors.allscreenbackground,
-        automaticallyImplyLeading: false,
-       
-       title: Row(
+        backgroundColor: CColors.onboarding1background,
+        iconTheme: IconThemeData(color: Colors.white),
+        title:
+       Row(
          mainAxisAlignment: MainAxisAlignment.spaceBetween,
          children: [
            Text('CareerGlass',style: TextStyle(color: CColors.text,fontSize: 20,fontWeight: FontWeight.w700)),
@@ -55,134 +56,144 @@ class _OnboardingScreen1State extends State<OnboardingScreen1> {
              onTap: () {
                Navigator.push(context, MaterialPageRoute(builder: (context) => LoginScreen(),));
              },
-               child: Text('Skip',style: TextStyle(color: CColors.primarytext,fontSize: 14,fontWeight: FontWeight.w500)))
+               child: Text('Skip',style: TextStyle(color: CColors.primarytext,fontSize: 14,fontWeight: FontWeight.w500),),
+           )
          ],
        ),
       ) ,
 
       body:
-      Padding(
-        padding: const EdgeInsets.all(24),
-        child: Column(
-          children: [
+      Container(
+        decoration: BoxDecoration(
+          color: CColors.onboarding1background
+        ),
+        child: Padding(
+          padding: const EdgeInsets.all(24),
+          child: Column(
+            children: [
 
-            Expanded(
-              child: PageView.builder(
-                itemCount: pages.length,
-                controller: controller,
-                onPageChanged: (index) {
-                  setState(() {
-                    currentPage=index;
-                  });
+              Expanded(
+                child: PageView.builder(
+                  itemCount: pages.length,
+                  controller: controller,
+                  physics: NeverScrollableScrollPhysics(), ///  swip close use
 
-                },
-                itemBuilder: (context, index) {
-                  return SingleChildScrollView(
-                    child: Column(
-                      children: [
- ///image=
-                        Image.asset(pages[index]['image'],height: 342,width: 342,),
+                  onPageChanged: (index) {
+                    setState(() {
+                      currentPage=index;
+                    });
 
-                        SizedBox(
-                          height: 350,
-                          width: double.infinity,
-                          child:
- ///card
-                          Expanded(
-                            child: Card(
-                              shape:RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(24),
-                                side: BorderSide(color: CColors.borderside)
-                              ),
-                              color: CColors.cardbackground,
-                             // shadowColor: CColors.primarybackground,
-                              elevation: 5.0,
-                              child:
-                                Padding(
-                                  padding: const EdgeInsets.all(20),
-                                  child: Column(
-                                    children: [
-                                      Text(pages[index]['title'],textAlign:TextAlign.center,style: TextStyle(color: CColors.text,fontSize: 30,fontWeight: FontWeight.w700),),
-                                      SizedBox(height: 20,),
+                  },
+                  itemBuilder: (context, index) {
+                    return SingleChildScrollView(
+                      child: Column(
+                        children: [
+         ///image=
+                          Image.asset(pages[index]['image'],height: 342,width: 342,),
 
-                                      Text(pages[index]['description'],textAlign:TextAlign.center,style: TextStyle(color: CColors.primarytext,fontSize: 16),),
-                                      SizedBox(height: 10,),
-
-///icon=
-                                      Row(
-                                        mainAxisAlignment: MainAxisAlignment.center,
-                                        children: List.generate(
-                                          pages.length,
-                                              (index) => Container(
-                                            margin: EdgeInsets.all(5),
-                                            width: currentPage == index ? 12 : 8,
-                                            height: currentPage == index ? 12 : 8,
-                                            decoration: BoxDecoration(
-                                              color: currentPage == index
-                                                  ? Colors.blue
-                                                  : Colors.grey,
-                                              shape: BoxShape.circle,
-                                            ),
-                                          ),
-                                        ),
-                                      ),
-
-                                      // SizedBox(height: 20,),
-                                      Spacer(),
-
-///button
-                                      SizedBox(
-                                        height: 56,
-                                        width: double.infinity,
-                                        child: ElevatedButton(
-                                            onPressed: () {
-
-                                              if(currentPage<pages.length -1){
-                                                controller.nextPage(
-                                                    duration: Duration(milliseconds: 300),
-                                                    curve: Curves.easeIn);
-                                              }
-                                              },
-                                            child:
-                                            Row(
-                                              mainAxisAlignment: MainAxisAlignment.center,
-                                              children: [
-                                                Text(pages[index]['title_button'],style: TextStyle(color: CColors.text,fontSize: 16,fontWeight: FontWeight.w500),),
-                                               Icon(Icons.arrow_forward,color:CColors.text,size: 16 ,)
-                                              ],
-                                            ),
-                                          style: ElevatedButton.styleFrom(
-                                            backgroundColor: CColors.button,
-                                            shape: RoundedRectangleBorder(
-                                              borderRadius: BorderRadius.circular(16)
-                                            )
-                                          ),
-
-
-                                        ),
-                                      ),
-
-
-                                    ],
-                                  ),
+                          SizedBox(
+                            height: 350,
+                            width: double.infinity,
+                            child:
+         ///card
+                            Expanded(
+                              child: Card(
+                                shape:RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(24),
+                                  side: BorderSide(color: CColors.borderside)
                                 ),
+                                color: CColors.cardbackground,
+                                elevation: 5.0,
+                                child:
+                                  Padding(
+                                    padding: const EdgeInsets.all(20),
+                                    child: Column(
+                                      children: [
+                                        Text(pages[index]['title'],textAlign:TextAlign.center,style: TextStyle(color: CColors.text,fontSize: 30,fontWeight: FontWeight.w700),),
+                                        SizedBox(height: 20,),
+
+                                        Text(pages[index]['description'],textAlign:TextAlign.center,style: TextStyle(color: CColors.primarytext,fontSize: 16),),
+                                        SizedBox(height: 10,),
+
+        ///icon=
+                                        Row(
+                                          mainAxisAlignment: MainAxisAlignment.center,
+                                          children: List.generate(
+                                            pages.length,
+                                                (index) => Container(
+                                              margin: EdgeInsets.all(5),
+                                              width: currentPage == index ? 12 : 8,
+                                              height: currentPage == index ? 12 : 8,
+                                              decoration: BoxDecoration(
+                                                color: currentPage == index
+                                                    ? Colors.blue
+                                                    : Colors.grey,
+                                                shape: BoxShape.circle,
+                                              ),
+                                            ),
+                                          ),
+                                        ),
+
+                                        // SizedBox(height: 20,),
+                                        Spacer(),
+
+        ///button
+                                        SizedBox(
+                                          height: 56,
+                                          width: double.infinity,
+                                          child: ElevatedButton(
+                                              onPressed: () {
+
+                                                if(currentPage<pages.length -1){     /// if use o last page nhi to next page jse
+                                                  controller.nextPage(
+                                                      duration: Duration(milliseconds: 300),
+                                                      curve: Curves.easeIn);
+                                                }
+                                                else {                             /// onboarding par  nhi ave login screen pr next
+                                                  Navigator.push(context, MaterialPageRoute(builder: (_) => LoginScreen(),),);
+                                                }
+                                                },
+                                              child:
+                                              Row(
+                                                mainAxisAlignment: MainAxisAlignment.center,
+                                                children: [
+                                                  Text(pages[index]['title_button'],style: TextStyle(color: CColors.text,fontSize: 16,fontWeight: FontWeight.w500),),
+                                                 Icon(Icons.arrow_forward,color:CColors.text,size: 16 ,)
+                                                ],
+                                              ),
+                                            style: ElevatedButton.styleFrom(
+                                              backgroundColor: CColors.button,
+                                              shape: RoundedRectangleBorder(
+                                                borderRadius: BorderRadius.circular(24)
+                                              )
+                                            ),
+
+
+                                          ),
+                                        ),
+
+
+                                      ],
+                                    ),
+                                  ),
+                              ),
                             ),
                           ),
-                        ),
-                    
-                      ],
-                    ),
-                  );
 
-              },
+                        ],
+                      ),
+                    );
 
+                },
+
+                ),
               ),
-            ),
 
 
 
 
-          ],
+            ],
+          ),
         ),
       ),
     );
