@@ -57,6 +57,7 @@ class _NotificationPageState extends State<NotificationPage> {
         backgroundColor: CColors.secondarybackground,
         centerTitle: true,
         title: Text('Notification page',style: TextStyle(color: CColors.text,fontSize: 18,fontWeight: FontWeight.w700,),),
+        // title: Text('Notification page',style: TextStyle(color: CColors.text,fontSize: 18,fontWeight: FontWeight.w700,),),
         actionsPadding: EdgeInsets.symmetric(horizontal: 16.0),
         actions: [
           Icon(Icons.more_vert,color: CColors.text,size: 20,)
