@@ -22,9 +22,15 @@ class CColors {
   static const Color hint1text = Color(0x1AFFFFFF);
 
 
-
   ///button
   static const Color button = Color(0xFF1132D4);
+  static const Color button1 = Color(0xFF1132D4);
+  static const Color button2 = Color(0xFF1132D4);
+
+
+
+
+
 
 
 

@@ -127,15 +127,20 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
                         ),
                       ),
                       child: ClipOval(
-                        child: Image.asset(
-                          'assets/images/profile.png',
-                          width: 38,
-                          height: 38,
-                          fit: BoxFit.cover,
-                          errorBuilder: (context, error, stackTrace) => Container(
-                            color: const Color(0xFF252840),
-                            child: const Icon(Icons.person,
-                                color: Colors.white54, size: 22),
+                        child: InkWell(
+                          onTap: () {
+                            Navigator.push(context, MaterialPageRoute(builder: (context) => ProfilePage(),));
+                          },
+                          child: Image.asset(
+                            'assets/images/profile.png',
+                            width: 38,
+                            height: 38,
+                            fit: BoxFit.cover,
+                            errorBuilder: (context, error, stackTrace) => Container(
+                              color: const Color(0xFF252840),
+                              child: const Icon(Icons.person,
+                                  color: Colors.white54, size: 22),
+                            ),
                           ),
                         ),
                       ),
