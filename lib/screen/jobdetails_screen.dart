@@ -1,8 +1,9 @@
+import 'package:career_glass_app/helpar/color.dart';
 import 'package:flutter/material.dart';
 import '../model/app_theme.dart';
 import '../model/job_model.dart';
 import '../widget/appbar.dart';
-
+import 'dashboard/joblisttile.dart';
 
 class JobDetailsScreen extends StatefulWidget {
   final JobModel job;
@@ -28,43 +29,31 @@ class _JobDetailsScreenState extends State<JobDetailsScreen> {
 
     return Scaffold(
       backgroundColor: AppColors.background,
-      appBar: CareerGlassAppBar(
-        showLogo: false,
-        title: 'Job Details',
-        onBackPressed: () => Navigator.pop(context),
-        actions: [
-          GestureDetector(
-            onTap: () => setState(() => _isSaved = !_isSaved),
-            child: Container(
-              width: 36,
-              height: 36,
-              decoration: BoxDecoration(
-                color: AppColors.surface,
-                borderRadius: BorderRadius.circular(10),
-              ),
-              child: Icon(
-                _isSaved ? Icons.bookmark_rounded : Icons.bookmark_border_rounded,
-                color: _isSaved ? AppColors.accent : AppColors.textPrimary,
-                size: 18,
-              ),
-            ),
+
+      appBar: AppBar(
+        backgroundColor: AppColors.background,
+        iconTheme: IconThemeData(color: CColors.text),
+
+        title: Text(
+          'Job Details',
+          style: TextStyle(
+            color: CColors.text,
+            fontSize: 18,
+            fontWeight: FontWeight.w700,
           ),
+        ),
+        centerTitle: true,
+        actionsPadding: EdgeInsets.all(16),
+        actions: [
           const SizedBox(width: 8),
-          Container(
-            width: 36,
-            height: 36,
-            decoration: BoxDecoration(
-              color: AppColors.surface,
-              borderRadius: BorderRadius.circular(10),
-            ),
-            child: const Icon(
-              Icons.share_outlined,
-              color: AppColors.textPrimary,
-              size: 18,
-            ),
+          const Icon(
+            Icons.share_outlined,
+            color: AppColors.textPrimary,
+            size: 20,
           ),
         ],
       ),
+
       body: SingleChildScrollView(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -101,16 +90,14 @@ class _JobDetailsScreenState extends State<JobDetailsScreen> {
                   child: Container(
                     decoration: BoxDecoration(
                       gradient: LinearGradient(
-                        colors: [
-                          Colors.transparent,
-                          AppColors.background,
-                        ],
+                        colors: [Colors.transparent, AppColors.background],
                         begin: Alignment.topCenter,
                         end: Alignment.bottomCenter,
                       ),
                     ),
                   ),
                 ),
+
                 // Company logo — bottom-left, overlapping banner
                 Positioned(
                   bottom: -40,
@@ -121,10 +108,7 @@ class _JobDetailsScreenState extends State<JobDetailsScreen> {
                     decoration: BoxDecoration(
                       color: const Color(0xFF1B3A2F),
                       borderRadius: BorderRadius.circular(18),
-                      border: Border.all(
-                        color: AppColors.cardBorder,
-                        width: 1,
-                      ),
+                      border: Border.all(color: AppColors.cardBorder, width: 1),
                     ),
                     child: ClipRRect(
                       borderRadius: BorderRadius.circular(18),
@@ -149,7 +133,6 @@ class _JobDetailsScreenState extends State<JobDetailsScreen> {
             ),
 
             const SizedBox(height: 52), // space for overlapping logo
-
             // ── Title & Meta ──────────────────────────────────────────────
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 16),
@@ -161,9 +144,8 @@ class _JobDetailsScreenState extends State<JobDetailsScreen> {
                     job.title,
                     style: const TextStyle(
                       color: AppColors.textPrimary,
-                      fontSize: 24,
+                      fontSize: 30,
                       fontWeight: FontWeight.w800,
-                      letterSpacing: -0.5,
                     ),
                   ),
                   const SizedBox(height: 6),
@@ -180,7 +162,7 @@ class _JobDetailsScreenState extends State<JobDetailsScreen> {
                           fontWeight: FontWeight.w600,
                         ),
                       ),
-                      const SizedBox(width: 8),
+                      const SizedBox(width: 20),
                       Container(
                         width: 4,
                         height: 4,
@@ -207,22 +189,32 @@ class _JobDetailsScreenState extends State<JobDetailsScreen> {
                   // Posted time • Applicants
                   Row(
                     children: [
-                      const Icon(Icons.access_time_rounded,
-                          color: AppColors.textMuted, size: 13),
+                      const Icon(
+                        Icons.access_time_rounded,
+                        color: AppColors.textMuted,
+                        size: 13,
+                      ),
                       const SizedBox(width: 4),
                       Text(
                         'Posted ${job.postedTime}',
                         style: const TextStyle(
-                            color: AppColors.textMuted, fontSize: 12),
+                          color: AppColors.textMuted,
+                          fontSize: 12,
+                        ),
                       ),
                       const SizedBox(width: 12),
-                      const Icon(Icons.people_outline_rounded,
-                          color: AppColors.textMuted, size: 13),
+                      const Icon(
+                        Icons.people_outline_rounded,
+                        color: AppColors.textMuted,
+                        size: 13,
+                      ),
                       const SizedBox(width: 4),
                       const Text(
                         '124 Applicants',
                         style: TextStyle(
-                            color: AppColors.textMuted, fontSize: 12),
+                          color: AppColors.textMuted,
+                          fontSize: 12,
+                        ),
                       ),
                     ],
                   ),
@@ -262,7 +254,10 @@ class _JobDetailsScreenState extends State<JobDetailsScreen> {
                     decoration: BoxDecoration(
                       color: const Color(0xFF191E39),
                       borderRadius: BorderRadius.circular(20),
-                      border: Border.all(color: AppColors.cardBorder, width: 0.5),
+                      border: Border.all(
+                        color: AppColors.cardBorder,
+                        width: 0.5,
+                      ),
                     ),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
@@ -278,7 +273,10 @@ class _JobDetailsScreenState extends State<JobDetailsScreen> {
                           ),
                         ),
                         const SizedBox(height: 4),
-                        const Divider(color: AppColors.cardBorder, thickness: 0.5),
+                        const Divider(
+                          color: AppColors.cardBorder,
+                          thickness: 0.5,
+                        ),
                         const SizedBox(height: 8),
                         Text(
                           job.about,
@@ -292,6 +290,7 @@ class _JobDetailsScreenState extends State<JobDetailsScreen> {
                         const SizedBox(height: 20),
 
                         // Requirements
+
                         const Text(
                           'Requirements',
                           style: TextStyle(
@@ -302,10 +301,14 @@ class _JobDetailsScreenState extends State<JobDetailsScreen> {
                           ),
                         ),
                         const SizedBox(height: 4),
-                        const Divider(color: AppColors.cardBorder, thickness: 0.5),
+                        const Divider(
+                          color: AppColors.cardBorder,
+                          thickness: 0.5,
+                        ),
                         const SizedBox(height: 8),
-                        ...job.requirements
-                            .map((req) => _RequirementItem(text: req)),
+                        ...job.requirements.map(
+                          (req) => _RequirementItem(text: req),
+                        ),
 
                         const SizedBox(height: 20),
 
@@ -316,19 +319,24 @@ class _JobDetailsScreenState extends State<JobDetailsScreen> {
                             color: AppColors.textPrimary,
                             fontSize: 15,
                             fontWeight: FontWeight.w700,
-                            letterSpacing: -0.3,
+                            //letterSpacing: -0.3,
                           ),
                         ),
                         const SizedBox(height: 4),
-                        const Divider(color: AppColors.cardBorder, thickness: 0.5),
-                        const SizedBox(height: 8),
+
+                        const Divider(
+                          color: AppColors.cardBorder,
+                          thickness: 0.5,
+                        ),
+
+                        const SizedBox(height: 10),
                         GridView.count(
                           crossAxisCount: 2,
                           shrinkWrap: true,
                           physics: const NeverScrollableScrollPhysics(),
-                          crossAxisSpacing: 10,
-                          mainAxisSpacing: 10,
-                          childAspectRatio: 2.6,
+                          crossAxisSpacing: 8,
+                          mainAxisSpacing: 8,
+                          childAspectRatio: 2,
                           children: job.benefits
                               .map((b) => _BenefitChip(label: b.label))
                               .toList(),
@@ -338,7 +346,7 @@ class _JobDetailsScreenState extends State<JobDetailsScreen> {
                   ),
                   const SizedBox(height: 20),
 
-                  // ── Location (no box) ─────────────────────────────────
+                  //    ── Location (no box) ─────────────────────────────────
                   const Text(
                     'Location',
                     style: TextStyle(
@@ -423,20 +431,18 @@ class _JobDetailsScreenState extends State<JobDetailsScreen> {
         ),
         decoration: const BoxDecoration(
           color: AppColors.bottomNavBgLeft,
-          border: Border(
-            top: BorderSide(color: AppColors.divider, width: 0.5),
-          ),
+          border: Border(top: BorderSide(color: AppColors.divider, width: 0.5)),
         ),
         child: Row(
           children: [
             GestureDetector(
               onTap: () => setState(() => _isSaved = !_isSaved),
               child: Container(
-                width: 48,
-                height: 48,
+                width: 56,
+                height: 56,
                 decoration: BoxDecoration(
-                  color: AppColors.surface,
-                  borderRadius: BorderRadius.circular(12),
+                  color: Color(0xff1E293B),
+                  borderRadius: BorderRadius.circular(24),
                   border: Border.all(color: AppColors.cardBorder, width: 0.5),
                 ),
                 child: Icon(
@@ -449,27 +455,95 @@ class _JobDetailsScreenState extends State<JobDetailsScreen> {
               ),
             ),
             const SizedBox(width: 12),
+
+            ////apply button========================================================================
             Expanded(
               child: GestureDetector(
-                onTap: () {
-                  ScaffoldMessenger.of(context).showSnackBar(
-                    SnackBar(
-                      content: Text(
-                        'Applied to ${job.title} at ${job.company}!',
-                      ),
-                      backgroundColor: AppColors.accent,
-                      behavior: SnackBarBehavior.floating,
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(12),
+
+                ///pop-pop box==========================================================================
+                onTap: () =>
+                    showDialog(
+                  context: context,
+                  builder: (context) => Dialog(
+                    constraints: BoxConstraints(maxHeight: 420,maxWidth: 342),
+
+                    backgroundColor: CColors.secondarybackground,
+                    child: Padding(
+                      padding: const EdgeInsets.all(30),
+                      child: Column(
+                        children: [
+                          Image.asset(
+                            'assets/images/check.png',
+                            height: 100,
+                            width: 100,
+                          ),
+                          Text(
+                            'Application Sent!',
+                            style: TextStyle(
+                              color: CColors.text,
+                              fontSize: 24,
+                              fontWeight: FontWeight.w700,
+                            ),
+                          ),
+                          SizedBox(height: 10,),
+                          RichText(
+                            textAlign: TextAlign.center,
+                            text: TextSpan(
+                              style: TextStyle(color: CColors.text, fontSize: 14),
+                              children: [
+                                TextSpan(
+                                  text:
+                                      "Your resume has been successfully sent to ",
+                                ),
+                                TextSpan(
+                                  text: "CareerGlass Inc.",
+                                  style: TextStyle(
+                                    color: CColors.button,
+                                    fontSize: 14,
+                                  ),
+                                ),
+                                TextSpan(
+                                  text:
+                                      ". We'll notify you when they view your profile.",
+                                ),
+                              ],
+                            ),
+                          ),
+                          SizedBox(height: 32,),
+                          ///button===================================================================
+                          SizedBox(
+                            height: 50 ,
+                            width: double.infinity,
+                            child: ElevatedButton(onPressed: () {
+
+                            },
+                                child: Text('View Application Status',style: TextStyle(color: CColors.text,fontSize: 16,fontWeight: FontWeight.w600),),
+                            style: ElevatedButton.styleFrom(
+                              backgroundColor: CColors.hinttext
+                            ),
+                            ),
+                          ),
+                          SizedBox(height: 24,),
+
+                          InkWell(
+                            onTap: () {
+                              Navigator.push(context, MaterialPageRoute(builder: (context) => JobListTile(job:job,),));
+                            },
+                              child: Text('Back to Job Search',style: TextStyle(color: CColors.hinttext),)),
+
+
+
+                        ],
                       ),
                     ),
-                  );
-                },
+                  ),
+                ),
+
                 child: Container(
-                  height: 48,
+                  height: 50,
                   decoration: BoxDecoration(
                     color: AppColors.accentLight,
-                    borderRadius: BorderRadius.circular(12),
+                    borderRadius: BorderRadius.circular(24),
                   ),
                   child: const Center(
                     child: Row(
@@ -479,9 +553,8 @@ class _JobDetailsScreenState extends State<JobDetailsScreen> {
                           'Apply Now',
                           style: TextStyle(
                             color: Colors.white,
-                            fontSize: 16,
+                            fontSize: 18,
                             fontWeight: FontWeight.w700,
-                            letterSpacing: -0.2,
                           ),
                         ),
                         SizedBox(width: 8),
@@ -489,6 +562,7 @@ class _JobDetailsScreenState extends State<JobDetailsScreen> {
                           Icons.arrow_forward_rounded,
                           color: Colors.white,
                           size: 18,
+                          weight: 18,
                         ),
                       ],
                     ),
@@ -642,17 +716,29 @@ class _BenefitChip extends StatelessWidget {
   // Map benefit label → icon
   static IconData _iconFor(String label) {
     final l = label.toLowerCase();
-    if (l.contains('health') || l.contains('medical')) return Icons.health_and_safety_outlined;
-    if (l.contains('remote') || l.contains('wfh') || l.contains('work from')) return Icons.home_work_outlined;
-    if (l.contains('pto') || l.contains('vacation') || l.contains('sabbatical')) return Icons.flight_takeoff_rounded;
-    if (l.contains('gym') || l.contains('fitness') || l.contains('allowance')) return Icons.fitness_center_rounded;
-    if (l.contains('stock') || l.contains('equity')) return Icons.trending_up_rounded;
-    if (l.contains('bonus') || l.contains('401') || l.contains('pension')) return Icons.savings_outlined;
-    if (l.contains('learning') || l.contains('education') || l.contains('budget')) return Icons.school_outlined;
-    if (l.contains('retreat') || l.contains('event') || l.contains('team')) return Icons.groups_outlined;
-    if (l.contains('equipment') || l.contains('device')) return Icons.devices_outlined;
+    if (l.contains('health') || l.contains('medical'))
+      return Icons.health_and_safety_outlined;
+    if (l.contains('remote') || l.contains('wfh') || l.contains('work from'))
+      return Icons.home_work_outlined;
+    if (l.contains('pto') || l.contains('vacation') || l.contains('sabbatical'))
+      return Icons.flight_takeoff_rounded;
+    if (l.contains('gym') || l.contains('fitness') || l.contains('allowance'))
+      return Icons.fitness_center_rounded;
+    if (l.contains('stock') || l.contains('equity'))
+      return Icons.trending_up_rounded;
+    if (l.contains('bonus') || l.contains('401') || l.contains('pension'))
+      return Icons.savings_outlined;
+    if (l.contains('learning') ||
+        l.contains('education') ||
+        l.contains('budget'))
+      return Icons.school_outlined;
+    if (l.contains('retreat') || l.contains('event') || l.contains('team'))
+      return Icons.groups_outlined;
+    if (l.contains('equipment') || l.contains('device'))
+      return Icons.devices_outlined;
     if (l.contains('insurance')) return Icons.security_outlined;
-    if (l.contains('flexible') || l.contains('hours')) return Icons.schedule_outlined;
+    if (l.contains('flexible') || l.contains('hours'))
+      return Icons.schedule_outlined;
     if (l.contains('creative')) return Icons.palette_outlined;
     return Icons.star_border_rounded;
   }
@@ -678,7 +764,6 @@ class _BenefitChip extends StatelessWidget {
             ),
           ),
           Row(
-
             children: [
               const SizedBox(width: 10),
               Expanded(

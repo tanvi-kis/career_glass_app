@@ -1,18 +1,13 @@
-import 'package:career_glass_app/joblistpage.dart';
-import 'package:career_glass_app/recruiter/applicantspage.dart';
-import 'package:career_glass_app/recruiter/applicationstatus.dart';
-import 'package:career_glass_app/recruiter/candidatepage.dart';
-import 'package:career_glass_app/recruiter/managejobspage.dart';
-import 'package:career_glass_app/recruiter/messagepage.dart';
-import 'package:career_glass_app/recruiter/postjobpage.dart';
-import 'package:career_glass_app/recruiter/scheduleinterview.dart';
-import 'package:career_glass_app/screen/dash_screen.dart' hide DashScreen;
+import 'package:career_glass_app/screen/auth/signup_screen.dart';
+import 'package:career_glass_app/screen/dashboard/notification_page.dart';
+import 'package:career_glass_app/screen/dashboard/saved_page.dart';
+import 'package:career_glass_app/screen/dashboard/widgets/dash_screen.dart';
+import 'package:career_glass_app/seeker/company_dashboard.dart';
 import 'package:career_glass_app/screen/onboarding_screen1.dart';
-import 'package:career_glass_app/trypage.dart';
+import 'package:career_glass_app/seeker/dash_screen/company_profile.dart';
 import 'package:career_glass_app/widget/mainscreen.dart';
 import 'package:flutter/material.dart';
-
-import 'dashscreen.dart';
+import 'seeker/main_dashscreen.dart';
 import 'helpar/color.dart';
 
 void main() {
@@ -28,14 +23,24 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
-      home: const ScheduleInterviewPage(),
-    );
 
+     // home: const MyHomePage(title: 'Flutter Demo Home Page'),
+      home:const MainDashscreen(),
+      //home:const MainScreen(),///dash screen
+      //home:const SignupScreen(),
+     // home:const SavedPage(),
+      //home:const NotificationPage(),
+
+
+
+    );
   }
 }
 
 class MyHomePage extends StatefulWidget {
   const MyHomePage({super.key, required this.title});
+
+
 
   final String title;
 
@@ -46,7 +51,7 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
 void initState(){
 super.initState();
-Future.delayed(Duration(seconds: 3),(){
+Future.delayed(Duration(seconds: 5),(){
   Navigator.push(context, MaterialPageRoute(builder: (context) => OnboardingScreen1(),));
 
 });
@@ -62,10 +67,18 @@ Future.delayed(Duration(seconds: 3),(){
         Container(
           decoration: BoxDecoration(
             gradient: LinearGradient(
-              colors: [CColors.secondarybackground, CColors.primarybackground],
-              begin:Alignment.topLeft,
-              end: Alignment.bottomCenter,
+              begin: Alignment.topLeft,
+              end: Alignment.bottomRight,
+              stops: [0.0, 0.25, 0.45, 0.7, 1.0],
+              colors: [
+                Color(0xFF251DC6),
+                Color(0xFF322F8D),
+                Color(0xFF2E2A84),
+                Color(0xFF1E2057),
+                Color(0xFF131426),
+              ],
             ),
+
           ),
           child: Padding(
             padding: const EdgeInsets.all(24),
@@ -107,7 +120,7 @@ Future.delayed(Duration(seconds: 3),(){
                 ),
 
                 SizedBox(height: 120,),
-
+///button-==
                 Center(
                   child: Container(
                     height: 50,
@@ -124,9 +137,8 @@ Future.delayed(Duration(seconds: 3),(){
                         crossAxisAlignment: CrossAxisAlignment.center,
                         children: [
                           CircleAvatar(
-                            radius: 50,
-                            backgroundImage: NetworkImage('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcToK3s_MU9QNJ0vVIgU7rK1sDPd_k5QHK5mrA&s',),
-                            //backgroundImage: AssetImage('assets/images/splash_image.png'),
+                            radius: 30,
+                            backgroundImage: AssetImage('assets/images/splash_image.png'),
                           ),
                           Text.rich(
                               TextSpan(

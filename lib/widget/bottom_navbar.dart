@@ -57,6 +57,12 @@ class CareerGlassBottomNavBar extends StatelessWidget {
             isSelected: currentIndex == 2,
             onTap: () => onTap(2),
           ),
+          _NavItem(
+            icon: Icons.notifications_none,
+            label: 'Notification',
+            isSelected: currentIndex == 3,
+            onTap: () => onTap(3),
+          ),
 
           _NavItem(
             icon: Icons.person_outline_rounded,

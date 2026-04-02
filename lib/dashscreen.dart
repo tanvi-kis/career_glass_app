@@ -32,10 +32,10 @@ class _DashScreenState extends State<DashScreen> {
     return Scaffold(
       backgroundColor: const Color(0xFF101532),
       appBar: _CustomAppBar(),
-
+      bottomNavigationBar: const _BottomNav(),
       body: SafeArea(
         child: SingleChildScrollView(
-          padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
+          padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 16),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -191,7 +191,7 @@ class _DashScreenState extends State<DashScreen> {
               const SizedBox(height: 12),
 
               SizedBox(
-                height: 240,
+                height: 222,
                 child: ListView(
                   scrollDirection: Axis.horizontal,
                   children: const [
@@ -235,17 +235,22 @@ class _DashScreenState extends State<DashScreen> {
               ),
               const SizedBox(height: 14),
 
+              // ── Airbnb ───────────────────────────────────────────────────
               _TrendingTile(
                 logoBg: const Color(0xFF1A2035),
                 logoWidget: Container(
-                  width: 20, height: 20,
+                  width: 20,
+                  height: 20,
                   padding: const EdgeInsets.all(8),
                   decoration: BoxDecoration(
                     color: const Color(0xFF32425E),
                     borderRadius: BorderRadius.circular(16),
                     border: Border.all(color: const Color(0xFF646F83)),
                   ),
-                  child: Image.asset('assets/images/t1.png', fit: BoxFit.contain),
+                  child: Image.asset(
+                    'assets/images/t3.png',
+                    fit: BoxFit.contain,
+                  ),
                 ),
                 title: 'Visual Designer',
                 company: 'Airbnb',
@@ -256,44 +261,54 @@ class _DashScreenState extends State<DashScreen> {
               ),
               const SizedBox(height: 20),
 
+              // ── Slack ────────────────────────────────────────────────────
               _TrendingTile(
                 logoBg: const Color(0xFF1A2035),
                 logoWidget: Container(
-                  width: 20, height: 20,
+                  width: 20,
+                  height: 20,
                   padding: const EdgeInsets.all(8),
                   decoration: BoxDecoration(
                     color: const Color(0xFF32425E),
                     borderRadius: BorderRadius.circular(16),
                     border: Border.all(color: const Color(0xFF646F83)),
                   ),
-                  child: Image.asset('assets/images/t2.png', fit: BoxFit.contain),
+                  child: Image.asset(
+                    'assets/images/t3.png',
+                    fit: BoxFit.contain,
+                  ),
                 ),
-                title: 'Design Lead',
+                title: 'Visual Designer',
                 company: 'Slack',
                 time: '5 hours ago',
-                salary: '\$210k',
-                salaryLabel: 'San Francisco',
+                salary: '\$110k',
+                salaryLabel: 'Global',
                 salaryColor: const Color(0xFF1132D3),
               ),
               const SizedBox(height: 20),
 
+              // ── Discord ──────────────────────────────────────────────────
               _TrendingTile(
                 logoBg: const Color(0xFF1A2035),
                 logoWidget: Container(
-                  width: 20, height: 20,
+                  width: 20,
+                  height: 20,
                   padding: const EdgeInsets.all(8),
                   decoration: BoxDecoration(
                     color: const Color(0xFF32425E),
                     borderRadius: BorderRadius.circular(16),
                     border: Border.all(color: const Color(0xFF646F83)),
                   ),
-                  child: Image.asset('assets/images/t3.png', fit: BoxFit.contain),
+                  child: Image.asset(
+                    'assets/images/t3.png',
+                    fit: BoxFit.contain,
+                  ),
                 ),
-                title: 'Community Manager',
+                title: 'Visual Designer',
                 company: 'Discord',
                 time: '1 day ago',
-                salary: '\$85k',
-                salaryLabel: 'Remote',
+                salary: '\$130k',
+                salaryLabel: 'Global',
                 salaryColor: const Color(0xFF1132D3),
               ),
               const SizedBox(height: 20),
@@ -321,7 +336,10 @@ class _CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
           end: Alignment.centerRight,
         ),
         border: Border(
-          bottom: BorderSide(color: Color(0xFF3E4059), width: 1),
+          bottom: BorderSide(
+            color: Color(0xFF3E4059),
+            width: 1,
+          ),
         ),
       ),
       child: SafeArea(
@@ -330,10 +348,12 @@ class _CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
+              // ── Logo + Title ──────────────────────────────────────────
               Row(
                 children: [
                   Container(
-                    width: 36, height: 36,
+                    width: 36,
+                    height: 36,
                     decoration: BoxDecoration(
                       gradient: const LinearGradient(
                         colors: [Color(0xFF0C338E), Color(0xFF4A7BF7)],
@@ -343,7 +363,8 @@ class _CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
                       borderRadius: BorderRadius.circular(10),
                     ),
                     child: const Center(
-                      child: Text('CG',
+                      child: Text(
+                        'CG',
                         style: TextStyle(
                           color: Colors.white,
                           fontWeight: FontWeight.bold,
@@ -353,7 +374,8 @@ class _CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
                     ),
                   ),
                   const SizedBox(width: 8),
-                  const Text('CareerGlass',
+                  const Text(
+                    'CareerGlass',
                     style: TextStyle(
                       color: Color(0xFFFFFFFF),
                       fontWeight: FontWeight.bold,
@@ -362,10 +384,13 @@ class _CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
                   ),
                 ],
               ),
+
+              // ── Actions ───────────────────────────────────────────────
               Row(
                 children: [
                   Container(
-                    width: 40, height: 40,
+                    width: 40,
+                    height: 40,
                     decoration: BoxDecoration(
                       color: const Color(0xFF252840),
                       borderRadius: BorderRadius.circular(30),
@@ -377,15 +402,20 @@ class _CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
                           child: IconButton(
                             padding: EdgeInsets.zero,
                             constraints: const BoxConstraints(),
-                            icon: const Icon(Icons.notifications_outlined,
-                                color: Colors.white70, size: 22),
+                            icon: const Icon(
+                              Icons.notifications_outlined,
+                              color: Colors.white70,
+                              size: 22,
+                            ),
                             onPressed: () {},
                           ),
                         ),
                         Positioned(
-                          right: 8, top: 8,
+                          right: 8,
+                          top: 8,
                           child: Container(
-                            width: 8, height: 8,
+                            width: 8,
+                            height: 8,
                             decoration: const BoxDecoration(
                               color: Color(0xFF1132D3),
                               shape: BoxShape.circle,
@@ -399,19 +429,25 @@ class _CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
                   GestureDetector(
                     onTap: () {},
                     child: Container(
-                      width: 40, height: 40,
+                      width: 40,
+                      height: 40,
                       decoration: BoxDecoration(
                         shape: BoxShape.circle,
-                        border: Border.all(color: const Color(0xFF2B3B7C), width: 2.5),
+                        border: Border.all(
+                          color: const Color(0xFF2B3B7C),
+                          width: 2.5,
+                        ),
                       ),
                       child: ClipOval(
                         child: Image.asset(
                           'assets/images/profile.png',
-                          width: 38, height: 38,
+                          width: 38,
+                          height: 38,
                           fit: BoxFit.cover,
                           errorBuilder: (context, error, stackTrace) => Container(
                             color: const Color(0xFF252840),
-                            child: const Icon(Icons.person, color: Colors.white54, size: 22),
+                            child: const Icon(Icons.person,
+                                color: Colors.white54, size: 22),
                           ),
                         ),
                       ),
@@ -427,7 +463,7 @@ class _CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   }
 }
 
-// ── Recommended Card ──────────────────────────────────────────────────────────
+// ── Recommended Card ─────────────────────────────────────────────────────────
 class _RecommendedCard extends StatelessWidget {
   final String logoLetter, title, company, location, salary;
   final List<String> tags;
@@ -448,11 +484,12 @@ class _RecommendedCard extends StatelessWidget {
       padding: const EdgeInsets.all(16),
       decoration: BoxDecoration(
         gradient: const LinearGradient(
-          colors: [Color(0xFF121639), Color(0xFF151531)],
+          colors: [Color(0xFF0C338E), Color(0xFF131D4F)],
           begin: Alignment.topLeft,
           end: Alignment.bottomRight,
         ),
         borderRadius: BorderRadius.circular(20),
+        border: Border.all(color: const Color(0xFF2A4AAF)),
         border: Border.all(color: const Color(0xFF2E2D46)),
       ),
       child: Column(
@@ -462,25 +499,33 @@ class _RecommendedCard extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Container(
-                width: 40, height: 40,
+                width: 40,
+                height: 40,
                 decoration: BoxDecoration(
                   color: const Color(0xFFFFFBFB),
                   borderRadius: BorderRadius.circular(12),
                   border: Border.all(color: const Color(0xFF646F83)),
                 ),
                 child: Center(
-                  child: Image.asset('assets/images/r1.png',
-                      width: 25, height: 25, fit: BoxFit.contain),
+                  child: Image.asset(
+                    'assets/images/t3.png',
+                    width: 25,
+                    height: 25,
+                    fit: BoxFit.contain,
+                  ),
                 ),
               ),
-              const Icon(Icons.bookmark_border, color: Color(0xFF7A90B8), size: 22),
+              const Icon(Icons.bookmark_border,
+                  color: Color(0xFF7A90B8), size: 22),
             ],
           ),
           const SizedBox(height: 12),
           Text(title,
             style: const TextStyle(
-              color: Colors.white, fontWeight: FontWeight.bold,
-              fontSize: 15, height: 1.3,
+              color: Colors.white,
+              fontWeight: FontWeight.bold,
+              fontSize: 15,
+              height: 1.3,
             ),
           ),
           const SizedBox(height: 4),
@@ -489,8 +534,12 @@ class _RecommendedCard extends StatelessWidget {
           ),
           const SizedBox(height: 10),
           Wrap(
-            spacing: 6, runSpacing: 6,
-            children: [...tags.map((t) => _tag(t)), _tag(salary)],
+            spacing: 6,
+            runSpacing: 6,
+            children: [
+              ...tags.map((t) => _tag(t)),
+              _tag(salary),
+            ],
           ),
           const Spacer(),
           SizedBox(
@@ -501,12 +550,16 @@ class _RecommendedCard extends StatelessWidget {
                 backgroundColor: const Color(0xFF1132D3),
                 elevation: 0,
                 shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(10)),
+                  borderRadius: BorderRadius.circular(10),
+                ),
                 padding: const EdgeInsets.symmetric(vertical: 10),
               ),
               child: const Text('Apply Now',
-                style: TextStyle(color: Colors.white,
-                    fontWeight: FontWeight.bold, fontSize: 13),
+                style: TextStyle(
+                  color: Colors.white,
+                  fontWeight: FontWeight.bold,
+                  fontSize: 13,
+                ),
               ),
             ),
           ),
@@ -519,11 +572,12 @@ class _RecommendedCard extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
       decoration: BoxDecoration(
-        color: const Color(0xFFC57C17),
+        color: const Color(0xFF1B2B6B),
         borderRadius: BorderRadius.circular(6),
       ),
       child: Text(label,
-          style: const TextStyle(color: Color(0xFFB8C8F0), fontSize: 10)),
+        style: const TextStyle(color: Color(0xFFB8C8F0), fontSize: 10),
+      ),
     );
   }
 }
@@ -553,7 +607,10 @@ class _TrendingTile extends StatelessWidget {
       decoration: BoxDecoration(
         color: const Color(0xFF191E39),
         borderRadius: BorderRadius.circular(20),
-        border: Border.all(color: const Color(0xFF3E4059), width: 0.5),
+        border: Border.all(
+          color: const Color(0xFF3E4059),
+          width: 1,
+        ),
       ),
       child: Row(
         children: [
@@ -561,7 +618,7 @@ class _TrendingTile extends StatelessWidget {
             width: 50, height: 50,
             decoration: BoxDecoration(
               color: logoBg,
-              borderRadius: BorderRadius.circular(8),
+              borderRadius: BorderRadius.circular(12),
             ),
             child: ClipRRect(
               borderRadius: BorderRadius.circular(12),
@@ -574,12 +631,18 @@ class _TrendingTile extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(title,
-                  style: const TextStyle(color: Color(0xFFFFFFFF),
-                      fontWeight: FontWeight.bold, fontSize: 15),
+                  style: const TextStyle(
+                    color: Color(0xFFFFFFFF),
+                    fontWeight: FontWeight.bold,
+                    fontSize: 15,
+                  ),
                 ),
                 const SizedBox(height: 5),
                 Text('$company • $time',
-                  style: const TextStyle(color: Color(0xFF4A5E90), fontSize: 12),
+                  style: const TextStyle(
+                    color: Color(0xFF4A5E90),
+                    fontSize: 12,
+                  ),
                 ),
               ],
             ),
@@ -588,12 +651,18 @@ class _TrendingTile extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.end,
             children: [
               Text(salary,
-                style: TextStyle(color: salaryColor,
-                    fontWeight: FontWeight.bold, fontSize: 15),
+                style: TextStyle(
+                  color: salaryColor,
+                  fontWeight: FontWeight.bold,
+                  fontSize: 15,
+                ),
               ),
               const SizedBox(height: 5),
               Text(salaryLabel,
-                style: const TextStyle(color: Color(0xFF4A5E90), fontSize: 11),
+                style: const TextStyle(
+                  color: Color(0xFF4A5E90),
+                  fontSize: 11,
+                ),
               ),
             ],
           ),
@@ -603,5 +672,61 @@ class _TrendingTile extends StatelessWidget {
   }
 }
 
+// ── Bottom Nav ────────────────────────────────────────────────────────────────
+class _BottomNav extends StatelessWidget {
+  const _BottomNav();
 
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      height: 75,
+      decoration: const BoxDecoration(
+        gradient: LinearGradient(
+          colors: [Color(0xFF171A29), Color(0xFF0E1640)],
+          begin: Alignment.centerLeft,
+          end: Alignment.centerRight,
+        ),
+        border: Border(
+          top: BorderSide(
+            color: Color(0xFF3E4059),
+            width: 1,
+          ),
+        ),
+      ),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceAround,
+        children: [
+          _navItem(Icons.home_rounded,           'Home',    true),
+          _navItem(Icons.work_outline,           'Jobs',    false),
+          _navItem(Icons.bookmark_border,        'Saved',   false),
+          _navItem(Icons.person_outline_rounded, 'Profile', false),
+        ],
+      ),
+    );
+  }
 
+  Widget _navItem(IconData icon, String label, bool active) {
+    const Color activeColor   = Color(0xFF1132D3);
+    const Color inactiveColor = Color(0xFF3A4E72);
+
+    return SizedBox(
+      width: 72,
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Icon(icon, size: 26,
+              color: active ? activeColor : inactiveColor),
+          const SizedBox(height: 5),
+          Text(label,
+            style: TextStyle(
+              fontSize: 12,
+              fontWeight: active ? FontWeight.w600 : FontWeight.w400,
+              color: active ? activeColor : inactiveColor,
+              letterSpacing: 0.1,
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}

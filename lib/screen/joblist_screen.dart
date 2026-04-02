@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import '../model/app_data.dart';
 import '../widget/appbar.dart';
 import 'jobdetails_screen.dart';
-import 'joblisttile.dart';
+import 'dashboard/joblisttile.dart';
 
 
 class JobListScreen extends StatefulWidget {
