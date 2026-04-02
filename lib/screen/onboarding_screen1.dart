@@ -46,7 +46,7 @@ class _OnboardingScreen1State extends State<OnboardingScreen1> {
       appBar:AppBar(
         backgroundColor: CColors.allscreenbackground,
         automaticallyImplyLeading: false,
-       
+
        title: Row(
          mainAxisAlignment: MainAxisAlignment.spaceBetween,
          children: [
@@ -169,12 +169,12 @@ class _OnboardingScreen1State extends State<OnboardingScreen1> {
                             ),
                           ),
                         ),
-                    
+
                       ],
                     ),
                   );
 
-              },
+                },
 
               ),
             ),

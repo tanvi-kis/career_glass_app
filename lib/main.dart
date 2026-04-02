@@ -1,6 +1,18 @@
+import 'package:career_glass_app/joblistpage.dart';
+import 'package:career_glass_app/recruiter/applicantspage.dart';
+import 'package:career_glass_app/recruiter/applicationstatus.dart';
+import 'package:career_glass_app/recruiter/candidatepage.dart';
+import 'package:career_glass_app/recruiter/managejobspage.dart';
+import 'package:career_glass_app/recruiter/messagepage.dart';
+import 'package:career_glass_app/recruiter/postjobpage.dart';
+import 'package:career_glass_app/recruiter/scheduleinterview.dart';
+import 'package:career_glass_app/screen/dash_screen.dart' hide DashScreen;
 import 'package:career_glass_app/screen/onboarding_screen1.dart';
+import 'package:career_glass_app/trypage.dart';
+import 'package:career_glass_app/widget/mainscreen.dart';
 import 'package:flutter/material.dart';
 
+import 'dashscreen.dart';
 import 'helpar/color.dart';
 
 void main() {
@@ -16,15 +28,14 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
+      home: const ScheduleInterviewPage(),
     );
+
   }
 }
 
 class MyHomePage extends StatefulWidget {
   const MyHomePage({super.key, required this.title});
-
-
 
   final String title;
 

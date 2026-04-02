@@ -15,9 +15,7 @@ class _LoginScreenState extends State<LoginScreen> {
 
   final emailController=TextEditingController();
 
-  
-  
-  
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
